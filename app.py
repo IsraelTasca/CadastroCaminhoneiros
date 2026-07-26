@@ -242,6 +242,5 @@ with ui.column().classes("items-center justify-center w-full min-h-screen"):
 ui.run(
     title="Auto Peças Estilo",
     host="0.0.0.0",
-    port=8080,
-    reload=True
+    port=8080
 )
