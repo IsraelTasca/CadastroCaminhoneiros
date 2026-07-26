@@ -1,3 +1,4 @@
+import os
 import psycopg2
 from psycopg2.pool import SimpleConnectionPool
 
@@ -5,11 +6,10 @@ from psycopg2.pool import SimpleConnectionPool
 # CONFIGURAÇÃO BANCO SUPABASE
 # ==========================================================
 
-DB_URI = (
-    "postgresql://postgres.lxsbgswggwlrqwocdvpc:"
-    "funilariaestilo@aws-0-ca-central-1.pooler.supabase.com:6543/"
-    "postgres?sslmode=require"
-)
+DB_URI = os.getenv("DATABASE_URL")
+
+if not DB_URI:
+    raise Exception("DATABASE_URL não configurada!")
 
 # ==========================================================
 # POOL DE CONEXÕES
